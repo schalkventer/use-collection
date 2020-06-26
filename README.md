@@ -1,9 +1,9 @@
 <!-- omit in toc -->
 # 🤹‍♂️ use-collection
 
-A toolkit for managing an array of unique, stateful items either by means of a React/Preact/Vue hook or vanilla JavaScript
+**A toolkit for managing an array of unique, stateful items either by means of a React/Preact/Vue hook or vanilla JavaScript**
 
-![](./packages/documentation/assets/image.png/logo.png)
+![](https://raw.githubusercontent.com/schalkventer/use-collection/master/packages/documentation/assets/image.png)
 
 <!-- omit in toc -->
 ## Table of Contents

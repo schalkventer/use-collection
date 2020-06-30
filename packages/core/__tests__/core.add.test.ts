@@ -20,19 +20,19 @@ describe('utilities', () => {
       describe('add', () => {
         test('Adding with "start"', () => {
           expect(
-            add({ collection: STARTING_ARRAY, newValues: INSERTING_ARRAY, destination: 'start' }),
+            add({ collection: STARTING_ARRAY, values: INSERTING_ARRAY, destination: 'start' }),
           ).toEqual([...INSERTING_ARRAY, ...STARTING_ARRAY]);
         });
 
         test('Adding with "end"', () => {
           expect(
-            add({ collection: STARTING_ARRAY, newValues: INSERTING_ARRAY, destination: 'end' }),
+            add({ collection: STARTING_ARRAY, values: INSERTING_ARRAY, destination: 'end' }),
           ).toEqual([...STARTING_ARRAY, ...INSERTING_ARRAY]);
         });
 
         test('Adding at index of 0', () => {
           expect(
-            add({ collection: STARTING_ARRAY, newValues: INSERTING_ARRAY, destination: 1 }),
+            add({ collection: STARTING_ARRAY, values: INSERTING_ARRAY, destination: 1 }),
           ).toEqual([STARTING_ARRAY[0], ...INSERTING_ARRAY, ...STARTING_ARRAY.slice(1)]);
         });
 
@@ -40,7 +40,7 @@ describe('utilities', () => {
           expect(
             add({
               collection: STARTING_ARRAY,
-              newValues: INSERTING_ARRAY,
+              values: INSERTING_ARRAY,
               destination: { before: 2 },
             }),
           ).toEqual([
@@ -54,7 +54,7 @@ describe('utilities', () => {
           expect(
             add({
               collection: STARTING_ARRAY,
-              newValues: INSERTING_ARRAY,
+              values: INSERTING_ARRAY,
               destination: { after: 2 },
             }),
           ).toEqual([

@@ -1,4 +1,5 @@
 import { get } from '../helpers';
+import { types } from '..';
 
 const STARTING_ARRAY = [
   { id: 'a', value: 1 },
@@ -14,7 +15,8 @@ const RESULTS_ARRAY = [
   [{ index: 3, item: { id: 'd', value: 2 } }],
 ];
 
-const flatten = (array) => array.reduce((result, value) => [...result, ...value], []);
+const flatten = <T extends types.general.BaseItem>(array: T[][]) =>
+  array.reduce((result: T[], value: T[]) => [...result, ...value], [] as T[]);
 
 describe('utilities', () => {
   describe('hooks', () => {

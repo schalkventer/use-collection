@@ -17,12 +17,22 @@
 
 ## Why use-collection?
 
+_Coming soon..._
+
 ## Getting started
 
 ### Vanilla JavaScript
 
+_Coming soon..._
+
 ### React
+
+_Coming soon..._
 
 ### Vue
 
+_Coming soon..._
+
 ### Preact
+
+_Coming soon..._

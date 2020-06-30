@@ -13,13 +13,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: [
-    'prettier',
-    'jest',
-    'compat',
-    'sonarjs',
-    'optimize-regex',
-  ],
+  plugins: ['prettier', 'jest', 'compat', 'sonarjs', 'optimize-regex'],
   env: {
     'jest/globals': true,
     browser: true,
@@ -31,6 +25,7 @@ module.exports = {
     },
   },
   rules: {
+    'no-warning-comments': [1, { terms: ['todo', 'fixme'], location: 'anywhere' }],
     'import/prefer-default-export': 'off',
     'import/extensions': 'off',
     'no-console': ['error', { allow: ['warn', 'error'] }],

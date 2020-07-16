@@ -19,8 +19,10 @@ interface Actions<T> {
  */
 export const useCollection = <T extends types.general.BaseItem>(
   items: T[],
-  config: types.api.Config<T>,
+  config?: types.api.Config<T>,
 ): [T[], Actions<T>, types.api.reducer] => {
+  const { strict = false } = config || {};
+
   const [collection, dispatch] = useReducer(reducer, items);
 
   const actions: Actions<T> = {
@@ -30,7 +32,7 @@ export const useCollection = <T extends types.general.BaseItem>(
           collection,
           query: props.query,
           amount: props.amount ?? 1,
-          strict: config.strict || false,
+          strict: strict || false,
         }),
       [],
     ),
@@ -42,7 +44,7 @@ export const useCollection = <T extends types.general.BaseItem>(
           payload: {
             values: props.values,
             destination: props.destination,
-            strict: config.strict || false,
+            strict: strict || false,
           },
         }),
       [],
@@ -55,7 +57,7 @@ export const useCollection = <T extends types.general.BaseItem>(
           payload: {
             query: props.query,
             amount: props.amount ?? 1,
-            strict: config.strict || false,
+            strict: strict || false,
           },
         }),
       [],
@@ -69,7 +71,7 @@ export const useCollection = <T extends types.general.BaseItem>(
             query: props.query,
             values: props.values,
             amount: props.amount ?? 1,
-            strict: config.strict || false,
+            strict: strict || false,
           },
         }),
       [],
@@ -116,3 +118,5 @@ export const useCollection = <T extends types.general.BaseItem>(
 
   return [collection, actionsRef.current, reducer];
 };
+
+export default useCollection;

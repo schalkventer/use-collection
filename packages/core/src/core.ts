@@ -5,14 +5,16 @@ import { reducer } from './core.reducer';
 export class Collection<T extends types.general.BaseItem> {
   collection: T[];
 
-  config: types.api.Config<T>;
+  config: types.api.Config<T> = {
+    strict: false,
+  };
 
-  onChange: (collection: T[]) => void;
+  onChange: null | ((collection: T[]) => void | null);
 
-  constructor(items: T[], config: types.api.Config<T>, onChange: (collection: T[]) => void) {
-    this.collection = items;
-    this.config = config;
-    this.onChange = onChange;
+  constructor(items?: T[], config?: types.api.Config<T>, onChange?: (collection: T[]) => void) {
+    this.collection = items || [];
+    this.config = config || { strict: false };
+    this.onChange = onChange || null;
   }
 
   get(props: Omit<types.get.GetProps<T>, 'strict'>): { index: number; item: T }[] {
@@ -29,6 +31,10 @@ export class Collection<T extends types.general.BaseItem> {
     });
 
     this.collection = result;
+
+    if (this.onChange) {
+      this.onChange(result);
+    }
   }
 
   remove(props: Omit<types.remove.RemoveProps<T>, 'strict'>): void {
@@ -40,6 +46,10 @@ export class Collection<T extends types.general.BaseItem> {
     });
 
     this.collection = result;
+
+    if (this.onChange) {
+      this.onChange(result);
+    }
   }
 
   update(props: Omit<types.update.UpdateProps<T>, 'strict'>): void {
@@ -51,6 +61,10 @@ export class Collection<T extends types.general.BaseItem> {
     });
 
     this.collection = result;
+
+    if (this.onChange) {
+      this.onChange(result);
+    }
   }
 
   move(props: types.move.MoveProps<T>): void {
@@ -62,6 +76,10 @@ export class Collection<T extends types.general.BaseItem> {
     });
 
     this.collection = result;
+
+    if (this.onChange) {
+      this.onChange(result);
+    }
   }
 
   reorder(props: types.reorder.ReorderProps<T>): void {
@@ -73,6 +91,10 @@ export class Collection<T extends types.general.BaseItem> {
     });
 
     this.collection = result;
+
+    if (this.onChange) {
+      this.onChange(result);
+    }
   }
 
   reset(props: types.reset.ResetProps<T>): void {
@@ -84,5 +106,9 @@ export class Collection<T extends types.general.BaseItem> {
     });
 
     this.collection = result;
+
+    if (this.onChange) {
+      this.onChange(result);
+    }
   }
 }

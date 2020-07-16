@@ -1,12 +1,28 @@
 {
   "name": "@use-collection/react",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "license": "MIT",
+  "description": "A toolkit for managing an array of unique, stateful items in vanilla JavaScript",
+  "author": "Schalk Venter <venterschalk@gmail.com>",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "homepage": "https://github.com/schalkventer/use-collection",
   "dependencies": {
     "@use-collection/core": "2.0.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.41",
-    "react": "^16.13.1"
-  }
+    "react": "^16.13.1",
+    "typescript": "^3.9.5"
+  },
+    "scripts": {
+      "build": "tsc"
+  },
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com/schalkventer/use-collection.git"
+    },
+    "bugs": {
+      "url": "https://github.com/schalkventer/use-collection/issues"
+    }
 }

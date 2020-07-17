@@ -13,7 +13,7 @@ export const add = <T extends types.general.BaseItem>(props: {
   strict?: boolean;
   destination: types.queries.destinationQuery<T>;
 }): T[] => {
-  const { collection, values, strict = false, destination } = props;
+  const { collection, values, strict = false, destination = 'end' } = props;
   const { queryValue, isAfter } = convertDestination({ collection, destination });
 
   /*

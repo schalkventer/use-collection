@@ -11,18 +11,20 @@
     "@use-collection/core": "2.0.0"
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^3.3.0",
     "@types/react": "^16.9.41",
     "react": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
     "typescript": "^3.9.5"
   },
-    "scripts": {
-      "build": "tsc"
+  "scripts": {
+    "build": "tsc"
   },
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/schalkventer/use-collection.git"
-    },
-    "bugs": {
-      "url": "https://github.com/schalkventer/use-collection/issues"
-    }
+    "type": "git",
+    "url": "git+https://github.com/schalkventer/use-collection.git"
+  },
+  "bugs": {
+    "url": "https://github.com/schalkventer/use-collection/issues"
+  }
 }

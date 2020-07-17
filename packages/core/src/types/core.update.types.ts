@@ -1,7 +1,7 @@
 import { types } from '..';
 
 export interface UpdateProps<T> {
-  values: Partial<T>;
+  values: Partial<T> | ((item: T) => Partial<T>);
   query: types.queries.query<T>;
 
   /**

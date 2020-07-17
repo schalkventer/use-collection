@@ -65,6 +65,24 @@ describe('utilities', () => {
           { ...STARTING_ARRAY[3], ...VALUES },
         ]);
       });
+
+      test('Updates via function', () => {
+        expect(
+          update({
+            collection: STARTING_ARRAY,
+            query: { value: 2 },
+            values: ({ value }) => ({ value: value * 1000 }),
+          }),
+        ).toEqual([
+          STARTING_ARRAY[0],
+          {
+            ...STARTING_ARRAY[1],
+            value: 2000,
+          },
+          STARTING_ARRAY[2],
+          STARTING_ARRAY[3],
+        ]);
+      });
     });
   });
 });

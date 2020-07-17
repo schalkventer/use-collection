@@ -12,7 +12,7 @@ export const update = <T extends types.general.BaseItem>(props: {
   strict?: boolean;
   amount?: number;
   query: types.queries.query<T>;
-  values: Partial<T>;
+  values: Partial<T> | ((item: T) => Partial<T>);
 }): T[] => {
   const { collection, strict = false, query, amount = 1, values } = props;
 
@@ -20,6 +20,17 @@ export const update = <T extends types.general.BaseItem>(props: {
   const clonedCollection = Array.from(collection);
 
   matches.forEach(({ index, item }) => {
+    if (typeof values === 'function') {
+      const valuesAsFunction = values as (item: T) => Partial<T>;
+
+      clonedCollection[index] = {
+        ...item,
+        ...valuesAsFunction(item),
+      };
+
+      return;
+    }
+
     clonedCollection[index] = {
       ...item,
       ...values,

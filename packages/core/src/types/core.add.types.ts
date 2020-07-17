@@ -2,6 +2,10 @@ import { types } from '..';
 
 export interface AddProps<T> {
   values: T;
+
+  /**
+   * @default 'end'
+   */
   destination: types.queries.destinationQuery<T>;
 
   /**

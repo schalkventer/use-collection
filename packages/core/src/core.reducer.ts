@@ -21,7 +21,7 @@ export const reducer = <T extends types.general.BaseItem>(
     case 'add':
       return add<T>({
         collection,
-        destination: action.payload.destination,
+        destination: action.payload.destination || 'end',
         values: Array.isArray(action.payload.values)
           ? action.payload.values
           : [action.payload.values],

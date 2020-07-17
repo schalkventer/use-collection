@@ -736,10 +736,10 @@
   dependencies:
     eslint-visitor-keys "^1.1.0"
 
-"@use-collection/core@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@use-collection/core/-/core-2.0.0.tgz#3a6089a583b7f780119d4f4d3c3b2ac62fc2b2d3"
-  integrity sha512-TtcnzhuaKbwcwxTBjfNXwDeJeUJOIhMdCvoBsGAuj7S+RpJuWdGVDIo/aulwuphNgkjTw4KOnRNzOTn/Fe3Hdw==
+"@use-collection/core@2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@use-collection/core/-/core-2.0.2.tgz#a1371df0fa31b839edd0f8e81fe4a07069cdefeb"
+  integrity sha512-c13URg27ZjXBh+l6YAQpAYupg9Gf58aJtaFsxFZH0fpWIVy9kmoE+DEqS8+V3FxqwA9h1tdez/O5N8OpyQHoPg==
 
 abab@^2.0.3:
   version "2.0.3"

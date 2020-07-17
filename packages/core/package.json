@@ -1,6 +1,6 @@
 {
     "name": "@use-collection/core",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "license": "MIT",
     "description": "A toolkit for managing an array of unique, stateful items in vanilla JavaScript",
     "author": "Schalk Venter <venterschalk@gmail.com>",

@@ -52,6 +52,21 @@ describe('react', () => {
       });
 
       expect(getValue).toEqual([{ index: 1, item: { id: 'b', value: 2 } }]);
+
+      act(() => {
+        getValue = result.current[1].update({
+          query: { value: 2 },
+          amount: 0,
+          values: { value: 9 },
+        });
+      });
+
+      expect(result.current[0]).toEqual(
+        [...STARTING_ARRAY, ...NEW_ARRAY].map((item) => ({
+          ...item,
+          value: item.value === 2 ? 9 : item.value,
+        })),
+      );
     });
   });
 });

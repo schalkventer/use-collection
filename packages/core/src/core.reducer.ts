@@ -32,7 +32,7 @@ export const reducer = <T extends types.general.BaseItem>(
       return remove<T>({
         collection,
         query: action.payload.query,
-        amount: action.payload.amount || 1,
+        amount: action.payload.amount ?? 1,
         strict: action.payload.strict || false,
       });
 

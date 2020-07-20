@@ -7,6 +7,14 @@ const STARTING_ARRAY = [
   { id: 'd', value: 2 },
 ];
 
+const LONGER_ARRAY = [
+  ...STARTING_ARRAY,
+  { id: 'e', value: 1 },
+  { id: 'f', value: 2 },
+  { id: 'g', value: 3 },
+  { id: 'h', value: 2 },
+];
+
 const VALUES = {
   value: 99,
 };
@@ -64,6 +72,19 @@ describe('utilities', () => {
           STARTING_ARRAY[2],
           { ...STARTING_ARRAY[3], ...VALUES },
         ]);
+      });
+
+      test('Updates all matching items', () => {
+        expect(
+          update({
+            collection: LONGER_ARRAY,
+            query: { value: 2 },
+            amount: 0,
+            values: { value: 9 },
+          }),
+        ).toEqual(
+          LONGER_ARRAY.map((item) => ({ ...item, value: item.value === 2 ? 9 : item.value })),
+        );
       });
 
       test('Updates via function', () => {

@@ -52,9 +52,15 @@ describe('react', () => {
       });
 
       expect(getValue).toEqual([{ index: 1, item: { id: 'b', value: 2 } }]);
+    });
+
+    test('Updates several values', () => {
+      const { result } = renderHook(() =>
+        useCollection<{ id: string; value: number }>([...STARTING_ARRAY, ...NEW_ARRAY]),
+      );
 
       act(() => {
-        getValue = result.current[1].update({
+        result.current[1].update({
           query: { value: 2 },
           amount: 0,
           values: { value: 9 },

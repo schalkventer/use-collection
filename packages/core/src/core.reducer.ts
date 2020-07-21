@@ -40,6 +40,7 @@ export const reducer = <T extends types.general.BaseItem>(
       return update<T>({
         collection,
         query: action.payload.query,
+        amount: action.payload.amount ?? 0,
         values: action.payload.values,
         strict: action.payload.strict || false,
       });

@@ -1,4 +1,5 @@
 import { update } from '../helpers';
+import { reducer } from '..';
 
 const STARTING_ARRAY = [
   { id: 'a', value: 1 },
@@ -24,16 +25,15 @@ describe('utilities', () => {
     describe('useCollection', () => {
       describe('update', () => {
         test('Update index of 0', () => {
-          expect(update({ collection: STARTING_ARRAY, query: 0, values: VALUES })).toEqual([
-            { ...STARTING_ARRAY[0], ...VALUES },
-            ...STARTING_ARRAY.slice(1),
-          ]);
+          expect(
+            update({ collection: STARTING_ARRAY, query: 0, values: VALUES, amount: 1 }),
+          ).toEqual([{ ...STARTING_ARRAY[0], ...VALUES }, ...STARTING_ARRAY.slice(1)]);
         });
       });
 
       test('Updates a single item', () => {
         expect(
-          update({ collection: STARTING_ARRAY, query: { value: 2 }, values: VALUES }),
+          update({ collection: STARTING_ARRAY, query: { value: 2 }, values: VALUES, amount: 1 }),
         ).toEqual([
           STARTING_ARRAY[0],
           { ...STARTING_ARRAY[1], ...VALUES },
@@ -42,10 +42,9 @@ describe('utilities', () => {
       });
 
       test('Updates first item', () => {
-        expect(update({ collection: STARTING_ARRAY, query: () => true, values: VALUES })).toEqual([
-          { ...STARTING_ARRAY[0], ...VALUES },
-          ...STARTING_ARRAY.slice(1),
-        ]);
+        expect(
+          update({ collection: STARTING_ARRAY, query: () => true, values: VALUES, amount: 1 }),
+        ).toEqual([{ ...STARTING_ARRAY[0], ...VALUES }, ...STARTING_ARRAY.slice(1)]);
       });
 
       test('Updates all items', () => {
@@ -91,6 +90,7 @@ describe('utilities', () => {
         expect(
           update({
             collection: STARTING_ARRAY,
+            amount: 1,
             query: { value: 2 },
             values: ({ value }) => ({ value: value * 1000 }),
           }),
@@ -103,6 +103,21 @@ describe('utilities', () => {
           STARTING_ARRAY[2],
           STARTING_ARRAY[3],
         ]);
+      });
+
+      test('Via reducer', () => {
+        expect(
+          reducer(LONGER_ARRAY, {
+            type: 'update',
+            payload: {
+              query: { value: 2 },
+              amount: 0,
+              values: { value: 9 },
+            },
+          }),
+        ).toEqual(
+          LONGER_ARRAY.map((item) => ({ ...item, value: item.value === 2 ? 9 : item.value })),
+        );
       });
     });
   });

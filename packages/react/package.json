@@ -1,6 +1,6 @@
 {
   "name": "@use-collection/react",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "license": "MIT",
   "description": "A toolkit for managing an array of unique, stateful items in React",
   "author": "Schalk Venter <venterschalk@gmail.com>",
@@ -8,7 +8,7 @@
   "types": "dist/index.d.ts",
   "homepage": "https://github.com/schalkventer/use-collection",
   "dependencies": {
-    "@use-collection/core": "2.0.2"
+    "@use-collection/core": "2.0.7"
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^3.3.0",
